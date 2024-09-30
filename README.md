@@ -9,17 +9,14 @@ Welcome to the **Code Commerce** project! This web application allows users to p
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Admin Dashboard](#admin-dashboard)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
-- **EBook Purchases**: Users can browse, purchase, and download eBooks related to coding and programming languages.
+- **EBook Purchases**: Users can purchase, and download eBooks related to coding and programming languages.
 - **Secure Payments**: Integrated Stripe payment processing for secure transactions.
 - **Admin Dashboard**: 
   - Add, update, and edit products.
   - Track orders and sales metrics.
-- **User Accounts**: Customers can create accounts to manage their purchases.
 - **Responsive Design**: Fully responsive layout for a seamless experience on all devices.
 
 ## Technologies
@@ -40,9 +37,9 @@ To get started with the project, follow these steps:
 - A Supabase account
 - A Stripe account
 
-### Installation
+## Note
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/code-commerce.git
-   cd code-commerce
+Throughout the development of this project, I gained valuable experience in building full-stack applications and working with databases. Code Commerce serves as a showcase of my frontend skills and demonstrates my enthusiasm for coding and software development. 
+
+Additionally, this project can be used as a portfolio piece for interview purposes, highlighting my ability to integrate various technologies and create a seamless user experience.
+
