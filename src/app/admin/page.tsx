@@ -37,12 +37,25 @@ export default async function Page() {
         getUserData(),
         getProductData(),
     ]);
+
     return (
-        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 lg:ml-20 sm:ml-0">
-            <CardDashboard title="Sales" subtitle={`${formatNumber(salesData.numberOfSales)} Orders`} body={formatCurrency(salesData.amount)} />
-            <CardDashboard title="Customers" subtitle={`${formatCurrency(userData.averageValuePerUser)} Average Value`} body={formatNumber(userData.averageValuePerUser)} />
-            <CardDashboard title="Active Products" subtitle={`${formatNumber(productData.inactiveCount)} Inactive`} body={formatNumber(productData.activeCount)} />
-        </div>
+        <main className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 lg:ml-20 sm:ml-0">
+            <CardDashboard
+                title="Sales"
+                subtitle={`${formatNumber(salesData.numberOfSales)} Orders`}
+                body={formatCurrency(salesData.amount)}
+            />
+            <CardDashboard
+                title="Customers"
+                subtitle={`${formatCurrency(userData.averageValuePerUser)} Average Value`}
+                body={formatNumber(userData.userCount)}
+            />
+            <CardDashboard
+                title="Active Products"
+                subtitle={`${formatNumber(productData.inactiveCount)} Inactive`}
+                body={formatNumber(productData.activeCount)}
+            />
+        </main>
     );
 }
 
