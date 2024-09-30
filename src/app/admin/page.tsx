@@ -31,6 +31,26 @@ async function getProductData() {
     return { activeCount, inactiveCount };
 }
 
+function CardDashboard({ title, subtitle, body }: DashboardCardProps) {
+    return (
+        <Card className="text-center">
+            <CardHeader>
+                <CardTitle>{title}</CardTitle>
+                <CardDescription>{subtitle}</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <p>{body}</p>
+            </CardContent>
+        </Card>
+    );
+}
+
+type DashboardCardProps = {
+    title: string;
+    subtitle: number | string;
+    body: string | number;
+};
+
 export default async function Page() {
     const [salesData, userData, productData] = await Promise.all([
         getSalesData(),
@@ -56,25 +76,5 @@ export default async function Page() {
                 body={formatNumber(productData.activeCount)}
             />
         </main>
-    );
-}
-
-type DashboardCardProps = {
-    title: string;
-    subtitle: number | string;
-    body: string | number;
-};
-
-export function CardDashboard({ title, subtitle, body }: DashboardCardProps) {
-    return (
-        <Card className="text-center">
-            <CardHeader>
-                <CardTitle>{title}</CardTitle>
-                <CardDescription>{subtitle}</CardDescription>
-            </CardHeader>
-            <CardContent>
-                <p>{body}</p>
-            </CardContent>
-        </Card>
     );
 }
