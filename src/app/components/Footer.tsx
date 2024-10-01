@@ -8,11 +8,7 @@ export default function Footer(){
                 <h1 className="text-2xl text-center pt-3 text-gray-700">Code Commerce®</h1>
             </div>
             <div className="flex justify-center">
-                <span className="text-muted-foreground text-center">Nemanja Antonijevic® 2024</span>    
-            </div>
-            <div className="flex justify-center mt-2 gap-4">
-                <a href="https://www.linkedin.com/in/nemanja-antonijevic-6baabb2a2/"><BsLinkedin className="cursor-pointer text-muted-foreground"/></a>
-                <a href="https://github.com/Nemanja0033"><BsGithub  className="cursor-pointer text-muted-foreground" /></a>
+                <a href="https://github.com/Nemanja0033" className="text-muted-foreground text-center">Nemanja Antonijevic® 2024</a>    
             </div>
         </div>
     )
