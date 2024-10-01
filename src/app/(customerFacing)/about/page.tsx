@@ -13,7 +13,7 @@ export default function AboutPage(){
                 <p className="text-muted-foreground text-2xl">After a download you can learn and enjoy!</p>
                 <br /><br />
                 <h1 className="text-4xl">Our Library</h1>
-                <p className="text-muted-foreground text-2xl">At CodeCommerce, we offer a diverse range of eBooks that cater to programmers of all skill levels. Whether you're just starting out or looking to deepen your knowledge, our collection covers essential programming languages and topics, including:</p>
+                <p className="text-muted-foreground text-2xl">At CodeCommerce, we offer a diverse range of eBooks that cater to programmers of all skill levels. Whether you re just starting out or looking to deepen your knowledge, our collection covers essential programming languages and topics, including:</p>
                 <br />
                 <p className="text-muted-foreground text-2xl">JavaScript: Dive into the world of web development with our JavaScript eBooks, featuring everything from basics to advanced frameworks.</p>
                 <br />
