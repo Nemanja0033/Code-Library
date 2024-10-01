@@ -23,6 +23,7 @@ Welcome to the **Code Commerce** project! This web application allows users to p
 - **TypeScript**: For type safety and improved development experience.
 - **Prisma**: For database management and ORM.
 - **Tailwind**: Fast and effective design
+- **shadcn ui**: Modern UI UX components
 - **Stripe**: For payment processing.
 - **Supabase**: For user authentication and database storage.
 
