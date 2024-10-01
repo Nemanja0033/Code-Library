@@ -1,3 +1,4 @@
+import Footer from "../components/Footer"
 import { Nav } from "../components/Navbar"
 import { NavLink } from "../components/Navbar"
 
@@ -16,7 +17,7 @@ export default function AdminLayout({
           <NavLink href="/admin/products">Products</NavLink>
           <NavLink href="/">Customers Page</NavLink>
         </Nav>
-        <div className="container my-6">{children}</div>
+        <div className="container my-6">{children}</div>  
       </>
     )
   }

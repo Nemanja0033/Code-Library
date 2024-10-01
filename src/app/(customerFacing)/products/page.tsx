@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { ProductCardSkeleton, ProductCard } from "../../components/ProductCard";
 import db from "@/db/db";
 import { Suspense } from "react";
@@ -57,17 +58,26 @@ function ProductsHeadlineSkeleton() {
 
 function ProductsHeadline() {
   return (
-    <div className="w-full mb-10">
-      <div className="mb-[100px] mt-[100px]">
-        <h1 className="text-5xl font-semibold text-center">Your Coding Companion: Dive into Expert eBooks Today!</h1>
+  <>
+    <div className="w-full mb-[100px] mt-[100px]">
+      <div className="">
+        <h1 className="text-5xl font-semibold text-center">Your Coding Companion:</h1>
+        <h1 className="text-4xl text-center text-muted-foreground mt-3">Dive into Expert eBooks Today!</h1>
         <br />
-        <p className="text-muted-foreground text-xl text-start ml-7">Dive into our extensive library of programming eBooks designed to elevate your skills and empower your coding journey. Whether you’re a beginner or an expert, we have something for everyone!</p>
+        <p className="text-muted-foreground text-2xl text-start ml-7">Dive into our extensive library of programming eBooks designed to elevate your skills and empower your coding journey. Whether you’re a beginner or an expert, we have something for everyone!</p>
         <br />
-        <p className="text-muted-foreground text-xl text-start ml-7">Unlock Your Potential: Discover in-depth tutorials, practical exercises, and real-world projects that will enhance your understanding and help you apply what you learn.</p>
+        <div className="flex justify-center">
+        <Button asChild>
+          <a href="#ebooks">Start Shoping!</a>
+        </Button>
       </div>
-      <h1 className="ml-10 text-4xl font-semibold text-start mb-3">eBooks</h1>
+      </div>
+    </div>
+    <div className="mt-10 mb-5">
+      <h1 className="ml-10 text-4xl font-semibold text-start mb-3">eBooks <span className="text-xl text-muted-foreground">*More Coming Soon!*</span></h1>
       <hr />
     </div>
+  </>
   );
 }
 
@@ -78,5 +88,5 @@ async function ProductsSuspense() {
     return <p>No products available.</p>;
   }
 
-  return products.map(product => <div key={product.id} className="lg:ml-10"><ProductCard key={product.id} {...product} /></div>);
+  return products.map(product => <div id="ebooks" key={product.id} className="lg:ml-10"><ProductCard key={product.id} {...product} /></div>);
 }
