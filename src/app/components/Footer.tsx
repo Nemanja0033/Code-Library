@@ -1,6 +1,3 @@
-import { MailIcon } from "lucide-react";
-import { BsGithub, BsLinkedin } from "react-icons/bs";
-
 export default function Footer(){
     return(
         <div className="w-full bg-gray-300 h-[110px] mt-20">
