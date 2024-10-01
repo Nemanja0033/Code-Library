@@ -100,7 +100,7 @@ function Form({
       .confirmPayment({
         elements,
         confirmParams: {
-          return_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/stripe/purchase-success`,
+          return_url: `${"https://code-commerce-five.vercel.app"}/stripe/purchase-success`,
         },
       })
       .then(({ error }) => {
