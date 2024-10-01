@@ -7,8 +7,6 @@ Welcome to the **Code Commerce** project! This web application allows users to p
 - [Features](#features)
 - [Technologies](#technologies)
 - [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Admin Dashboard](#admin-dashboard)
 
 ## Features
 
@@ -24,6 +22,7 @@ Welcome to the **Code Commerce** project! This web application allows users to p
 - **Next.js 14**: For building the frontend with a powerful app router.
 - **TypeScript**: For type safety and improved development experience.
 - **Prisma**: For database management and ORM.
+- **Tailwind**: Fast and effective design
 - **Stripe**: For payment processing.
 - **Supabase**: For user authentication and database storage.
 
