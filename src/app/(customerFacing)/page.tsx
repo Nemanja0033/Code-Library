@@ -3,7 +3,7 @@ import db from "@/db/db";
 import { Product } from "@prisma/client";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { ProductCard, ProductCardSkeleton } from "../components/ProductCard";
+import { FreeProductCard, ProductCard, ProductCardSkeleton } from "../components/ProductCard";
 import { Suspense } from "react";
 
 async function getMostPopularProducts() {
@@ -20,12 +20,26 @@ async function getMostPopularProducts() {
   }
 }
 
+async function getFreeProducts(){
+  try {
+    const products = await db.product.findMany({
+      where: { priceInCents: 0},
+      orderBy: { orders: { _count: "asc"}},
+      take: 3,
+    });
+    return products;
+  } catch  (error) {
+    console.log("Error while fetching free products:", error);
+  }
+  return [];
+}
+
 async function getNewestProducts() {
   try {
     const products = await db.product.findMany({
       where: { isAvailableForPurchase: true },
       orderBy: { createdAt: "desc" },
-      take: 6,
+      take: 3,
     });
     return products;
   } catch (error) {
@@ -46,6 +60,9 @@ export default async function HomePage() {
       <br /><br />
       <Suspense fallback={<LoadingSection title="Newest" />}>
         <ProductGridSection title="Newest" products={await getNewestProducts()} />
+      </Suspense>
+      <Suspense fallback={<LoadingSection title="Free To Read" />}> 
+        <FreeProductGridSection title="Free To Read" products={await getFreeProducts()} /> 
       </Suspense>
     </div>
   );
@@ -105,6 +122,27 @@ function ProductGridSection({ products, title }: ProductGridSectionProps) {
         ) : (
           products.map(product => (
             <ProductCard key={product.id} {...product} />
+          ))
+        )}
+      </div>
+    </div>
+  );
+}
+
+function FreeProductGridSection({ products, title }: ProductGridSectionProps) {
+  return (
+    <div className="space-y-8">
+      <div className="flex gap-4">
+        <h2 className="lg:ml-10 text-3xl font-semibold">{title}</h2>
+        <Button variant="outline" asChild>
+        </Button>
+      </div>
+      <div className="lg:ml-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {products.length === 0 ? (
+          <p>No products available.</p>
+        ) : (
+          products.map(product => (
+            <FreeProductCard linkTo1="https://www.infobooks.org/pdfview/introduction-to-python-programming-udayan-das-aubrey-lawson-210/" linkTo2="https://www.infobooks.org/pdfview/principles-of-programming-languages-mike-grant-zachary-palmer-scott-smith-210/" key={product.id} {...product} />
           ))
         )}
       </div>
