@@ -5,6 +5,8 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { FreeProductCard, ProductCard, ProductCardSkeleton } from "../components/ProductCard";
 import { Suspense } from "react";
+import Image from 'next/image';
+import featuredImage from './assets/featured.png'
 
 async function getMostPopularProducts() {
   try {
@@ -94,6 +96,11 @@ function HeroBanner() {
         <Button asChild variant='outline'>
           <Link href='/about'>Learn More <ArrowRight className="size-4" /></Link>
         </Button>
+      </div>
+      <div className="text-gray-400 mt-[180px] w-full">
+        <Image className="opacity-50" src={featuredImage} alt="featured"></Image>
+        <br />
+        <h1 className="font-bold">Learn Most Used Programming languages</h1>
       </div>
     </div>
   );

@@ -47,7 +47,7 @@ export function ProductCard({
         <CardDescription className="text-xl">{formatCurrency(priceInCents / 100)}</CardDescription>
       </CardHeader>
       <CardContent className="flex-grow">
-        <p className="line-clamp-4">{description}</p>
+        <p className="line-clamp-4 text-muted-foreground">{description}</p>
       </CardContent>
       <CardFooter>
         <Button asChild size="lg" className="w-full">
