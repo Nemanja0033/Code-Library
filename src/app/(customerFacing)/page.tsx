@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { FreeProductCard, ProductCard, ProductCardSkeleton } from "../components/ProductCard";
 import { Suspense } from "react";
-import Image from 'next/image';
+
 
 async function getMostPopularProducts() {
   try {
