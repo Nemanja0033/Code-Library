@@ -6,7 +6,6 @@ import Link from "next/link";
 import { FreeProductCard, ProductCard, ProductCardSkeleton } from "../components/ProductCard";
 import { Suspense } from "react";
 import Image from 'next/image';
-import featuredImage from './assets/featured.png'
 
 async function getMostPopularProducts() {
   try {
@@ -98,7 +97,7 @@ function HeroBanner() {
         </Button>
       </div>
       <div className="text-gray-400 mt-[180px] w-full">
-        <Image className="opacity-50" src={featuredImage} alt="featured"></Image>
+        <img src="https://i.ibb.co/MRtdsWd/featured.png" alt="featured" />
         <br />
         <h1 className="font-bold">Learn Most Used Programming languages</h1>
       </div>
