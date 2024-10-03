@@ -64,20 +64,6 @@ async function GetAmountOfProducts(){
 function ProductsHeadline() {
   return (
   <>
-    <div className="w-full mb-[100px] mt-[100px]">
-      <div className="">
-        <h1 className="text-5xl font-semibold text-center">Your Coding Companion:</h1>
-        <h1 className="text-4xl text-center text-muted-foreground mt-3">Dive into Expert eBooks Today!</h1>
-        <br />
-        <p className="text-muted-foreground text-2xl text-center ml-7">Dive into our extensive library of programming eBooks designed to elevate your skills and empower your coding journey. Whether you’re a beginner or an expert, we have something for everyone!</p>
-        <br />
-        <div className="flex justify-center">
-        <Button asChild>
-          <a href="#ebooks">Start Shoping!</a>
-        </Button>
-      </div>
-      </div>
-    </div>
     <div className="mt-10 mb-5">
       <h1 className="ml-10 text-4xl font-semibold text-start mb-3">eBooks <span><GetAmountOfProducts /></span></h1>
       <hr />
