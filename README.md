@@ -1,6 +1,6 @@
 # Code Commerce
 
-CCode Commerce is an eBook web store that allows users to purchase and download a wide range of eBooks. The platform also features an admin dashboard for managing products efficiently.
+Code Commerce is an eBook web store that allows users to purchase and download a wide range of eBooks. The platform also features an admin dashboard for managing products efficiently.
 
 ## Table of Contents
 
