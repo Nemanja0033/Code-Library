@@ -10,7 +10,9 @@ Code Commerce is an eBook web store that allows users to purchase and download a
 
 ## Features
 
+- **Landing Page**: A modern interactive landing page with a crisp, responsive navbar and multiple sections.
 - **EBook Purchases**: Users can purchase, and download eBooks related to coding and programming languages.
+- **State Managed**: With multiple React hooks
 - **Checkout**: Integrated Stripe payment process
 - **Admin Dashboard**: 
   - Add, update, and edit products - Track orders and sales metrics
