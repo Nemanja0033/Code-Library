@@ -1,6 +1,6 @@
 # Code Commerce
 
-Welcome to the **Code Commerce** project! This web application allows users to purchase and download eBooks focused on coding and programming languages. Built with Next.js 14, TypeScript, Prisma, Stripe, and Supabase, it provides a seamless experience for both customers and administrators.
+Code Commerce is an eBook web store that allows users to purchase and download a wide range of eBooks. The platform also features an admin dashboard for managing products efficiently.
 
 ## Table of Contents
 
@@ -11,21 +11,22 @@ Welcome to the **Code Commerce** project! This web application allows users to p
 ## Features
 
 - **EBook Purchases**: Users can purchase, and download eBooks related to coding and programming languages.
-- **Secure Payments**: Integrated Stripe payment processing for secure transactions.
+- **Checkout**: Integrated Stripe payment process
 - **Admin Dashboard**: 
-  - Add, update, and edit products.
-  - Track orders and sales metrics.
+  - Add, update, and edit products - Track orders and sales metrics
 - **Responsive Design**: Fully responsive layout for a seamless experience on all devices.
 
 ## Technologies
 
-- **Next.js 14**: For building the frontend with a powerful app router.
-- **TypeScript**: For type safety and improved development experience.
-- **Prisma**: For database management and ORM.
-- **Tailwind**: Fast and effective design
-- **shadcn ui**: Modern UI UX components
-- **Stripe**: For payment processing.
-- **Supabase**: For user authentication and database storage.
+- **Next.js 14** 
+- **TypeScript**
+- **Prisma**
+- **Tailwind**
+- **shadcn ui**
+- **Stripe**
+- **Supabase**
+- **Zod**
+
 
 ## Getting Started
 
