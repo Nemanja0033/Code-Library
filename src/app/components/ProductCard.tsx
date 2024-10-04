@@ -19,16 +19,6 @@ type ProductCardProps = {
   imagePath: string
 }
 
-type FreeProductCardProps = {
-  id: string
-  name: string
-  priceInCents: number
-  description: string
-  imagePath: string
-  linkTo1: string
-  linkTo2: string
-  //linkTo3: string
- }
 
 export function ProductCard({
   id,
@@ -50,39 +40,11 @@ export function ProductCard({
         <p className="line-clamp-4 text-muted-foreground">{description}</p>
       </CardContent>
       <CardFooter>
-        <Button asChild size="lg" className="w-full">
-          <Link href={`/products/${id}/purchase`}>Purchase</Link>
+        <Button asChild size='lg' className="m-5" >
+          <Link href={`/products/${id}/productIfno`}>More Details</Link>
         </Button>
-      </CardFooter>
-    </Card>
-  )
-}
-
-export function FreeProductCard({
-  id,
-  name,
-  priceInCents,
-  description,
-  imagePath,
-  linkTo1,
-  linkTo2,
-  
-}: FreeProductCardProps) {
-  return (
-    <Card className="flex overflow-hidden flex-col">
-      <div className="relative w-full h-auto aspect-video">
-        <Image src={imagePath} fill alt={name} />
-      </div>
-      <CardHeader>
-        <CardTitle>{name}</CardTitle>
-        <CardDescription className="text-xl">{formatCurrency(priceInCents / 100)}</CardDescription>
-      </CardHeader>
-      <CardContent className="flex-grow">
-        <p className="line-clamp-4">{description}</p>
-      </CardContent>
-      <CardFooter>
-        <Button asChild size="lg" className="w-full">
-          <Link href={name === 'Introduction to Python Programming' ? linkTo1 : (name === 'Principles of Programming Languages' ? linkTo2 : 'https://www.infobooks.org/pdfview/programming-languages-application-and-interpretation-shriram-krishnamurthi-210/')}>Read Now</Link>
+        <Button asChild size="lg">
+          <Link href={`/products/${id}/purchase`}>Purchase</Link>
         </Button>
       </CardFooter>
     </Card>

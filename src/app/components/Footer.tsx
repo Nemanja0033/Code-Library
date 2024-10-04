@@ -30,14 +30,6 @@ export default function Footer(){
                         <li>Community</li>
                     </ul>
                 </div>
-                <div>
-                    <h3 className="font-bold mb-2">Partners</h3>
-                    <ul>
-                        <li>Affiliate Program</li>
-                        <li>Author Program</li>
-                        <li>Corporate Sales</li>
-                    </ul>
-                </div>
             </div>
             <br />
             <div className="text-center mt-4 text-muted-foreground">

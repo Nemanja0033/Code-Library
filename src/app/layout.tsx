@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn('bg-background min-h-screen font-sans antialiased')}
+        className={cn('bg-gray-100 min-h-screen font-sans antialiased')}
       >
         {children}
       </body>

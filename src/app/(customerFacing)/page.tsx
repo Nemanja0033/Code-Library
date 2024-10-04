@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
 import db from "@/db/db";
 import { Product } from "@prisma/client";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BookIcon, BookUser, PersonStandingIcon, ShieldCheck, UserIcon } from "lucide-react";
 import Link from "next/link";
-import { FreeProductCard, ProductCard, ProductCardSkeleton } from "../components/ProductCard";
+import { ProductCard, ProductCardSkeleton } from "../components/ProductCard";
 import { Suspense } from "react";
+
 
 
 async function getMostPopularProducts() {
@@ -19,20 +20,6 @@ async function getMostPopularProducts() {
     console.error("Error fetching most popular products:", error);
     return [];
   }
-}
-
-async function getFreeProducts(){
-  try {
-    const products = await db.product.findMany({
-      where: { priceInCents: 0},
-      orderBy: { orders: { _count: "asc"}},
-      take: 3,
-    });
-    return products;
-  } catch  (error) {
-    console.log("Error while fetching free products:", error);
-  }
-  return [];
 }
 
 async function getNewestProducts() {
@@ -62,8 +49,11 @@ export default async function HomePage() {
       <Suspense fallback={<LoadingSection title="Newest" />}>
         <ProductGridSection title="Newest" products={await getNewestProducts()} />
       </Suspense>
-      <Suspense fallback={<LoadingSection title="Free To Read" />}> 
-        <FreeProductGridSection title="Free To Read" products={await getFreeProducts()} /> 
+      <Suspense fallback={<LoadingSection title="" />}>
+        <FeaturesSection />
+      </Suspense>
+      <Suspense fallback={<LoadingSection title="" />}>
+        <ReadersSection />
       </Suspense>
     </div>
   );
@@ -93,7 +83,7 @@ function HeroBanner() {
           <Link href='/products'>Explore eBooks</Link>
         </Button>
         <Button asChild variant='outline'>
-          <Link href='/about'>Learn More <ArrowRight className="size-4" /></Link>
+          <Link href='/about'>Read Docs <ArrowRight className="size-4" /></Link>
         </Button>
       </div>
       <div className="text-gray-400 mt-[180px] w-full">
@@ -135,25 +125,70 @@ function ProductGridSection({ products, title }: ProductGridSectionProps) {
   );
 }
 
-function FreeProductGridSection({ products, title }: ProductGridSectionProps) {
-  return (
-    <div className="space-y-8">
-      <div className="flex gap-4">
-        <h2 className="lg:ml-10 text-3xl font-semibold">{title}</h2>
-        <Button variant="outline" asChild>
-        </Button>
-      </div>
-      <div className="lg:ml-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {products.length === 0 ? (
-          <p>No products available.</p>
-        ) : (
-          products.map(product => (
-            <FreeProductCard linkTo1="https://www.infobooks.org/pdfview/introduction-to-python-programming-udayan-das-aubrey-lawson-210/" linkTo2="https://www.infobooks.org/pdfview/principles-of-programming-languages-mike-grant-zachary-palmer-scott-smith-210/" key={product.id} {...product} />
-          ))
-        )}
-      </div>
+function FeaturesSection(){
+  return(
+    <div className="bg-gray-100 py-20">
+    <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-3xl font-bold mb-8">Why Choose Us?</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="p-6 bg-white rounded shadow">
+              <div className="flex justify-center">
+              <BookIcon size={46} />
+              </div>
+                <h3 className="text-xl font-bold mb-2">Extensive Library</h3>
+                <p className="text-gray-600">Access a wide range of eBooks on various programming languages and technologies.</p>
+            </div>
+            <div className="p-6 bg-white rounded shadow">
+              <div className="flex justify-center">
+              <BookUser size={46} /> 
+              </div>
+                <h3 className="text-xl font-bold mb-2">Expert Authors</h3>
+                <p className="text-gray-600">Learn from industry experts and experienced programmers.</p>
+            </div>
+            <div className="p-6 bg-white rounded shadow">
+              <div className="flex justify-center">
+              <ShieldCheck size={46} />
+              </div>
+                <h3 className="text-xl font-bold mb-2">Certified Content</h3>
+                <p className="text-gray-600">All our eBooks are certified and up-to-date with the latest trends.</p>
+            </div>
+        </div>
     </div>
-  );
+</div>
+  )
+}
+
+function ReadersSection(){
+  return(
+    <div className="bg-white py-20">
+    <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-3xl font-bold mb-8">What Our Readers Say</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="p-6 bg-gray-100 rounded shadow">
+            <div className="flex justify-center">
+              <UserIcon  />
+              </div>
+                <p className="text-gray-600 mb-4">CodeCommerce has transformed my coding skills. The eBooks are top-notch!</p>
+                <h3 className="text-xl font-bold">@JohnDoe</h3>
+            </div>
+            <div className="p-6 bg-gray-100 rounded shadow">
+            <div className="flex justify-center">
+              <UserIcon  />
+              </div>
+                <p className="text-gray-600 mb-4">I love the variety of topics covered. There s something for everyone.</p>
+                <h3 className="text-xl font-bold">@JaneSmith</h3>
+            </div>
+            <div className="p-6 bg-gray-100 rounded shadow">
+            <div className="flex justify-center">
+              <UserIcon  />
+              </div>
+                <p className="text-gray-600 mb-4">The expert authors provide clear and concise explanations. Highly recommend!</p>
+                <h3 className="text-xl font-bold">@AliceJohnson</h3>
+            </div>
+        </div>
+    </div>
+    </div>
+  )
 }
 
 function LoadingSection({ title }: { title: string }) {

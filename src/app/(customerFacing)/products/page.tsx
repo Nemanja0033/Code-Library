@@ -42,11 +42,7 @@ export default function ProductsPage() {
 
 function ProductsHeadlineSkeleton() {
   return (
-    <div className="w-full mb-10">
-      <div className="mb-[100px] mt-[100px] text-center animate-pulse">
-        <div className="h-10 w-3/4 bg-gray-300 rounded mx-auto mb-5"></div>
-        <div className="h-6 w-1/2 bg-gray-300 rounded mx-auto mb-5"></div>
-      </div>
+    <div>
       <div className="ml-3 mb-3">
         <div className="h-8 w-1/3 bg-gray-300 rounded mb-3"></div>
         <div className="h-px bg-gray-300"></div>

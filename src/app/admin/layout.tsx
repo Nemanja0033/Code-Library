@@ -1,4 +1,3 @@
-import Footer from "../components/Footer"
 import { Nav } from "../components/Navbar"
 import { NavLink } from "../components/Navbar"
 
@@ -12,7 +11,6 @@ export default function AdminLayout({
     return (
       <>
         <Nav>
-        <a className="self-center font-semibold lg:text-xl" href="/">Code<span className="text-muted-foreground">Commerce</span></a>
           <NavLink href="/admin">Dashboard</NavLink>
           <NavLink href="/admin/products">Products</NavLink>
           <NavLink href="/">Customers Page</NavLink>
