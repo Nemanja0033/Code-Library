@@ -206,7 +206,7 @@ function ReadersSection() {
                     <UserIcon />
                   </div>
                   <p className="text-gray-600 mb-4">
-                    I love the variety of topics covered. There's something for everyone.
+                    I love the variety of topics covered. There s something for everyone.
                   </p>
                   <h3 className="text-xl font-bold">@JaneSmith</h3>
                 </div>
