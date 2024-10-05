@@ -5,6 +5,7 @@ import { ArrowRight, BookIcon, BookUser, PersonStandingIcon, ShieldCheck, UserIc
 import Link from "next/link";
 import { ProductCard, ProductCardSkeleton } from "../components/ProductCard";
 import { Suspense } from "react";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
 
 
@@ -13,6 +14,20 @@ async function getMostPopularProducts() {
     const products = await db.product.findMany({
       where: { isAvailableForPurchase: true },
       orderBy: { orders: { _count: "desc" } },
+      take: 3,
+    });
+    return products;
+  } catch (error) {
+    console.error("Error fetching most popular products:", error);
+    return [];
+  }
+}
+
+async function getMostPopularProductsSecond(){
+  try {
+    const products = await db.product.findMany({
+      where: { isAvailableForPurchase: true },
+      orderBy: { createdAt: 'desc' },
       take: 3,
     });
     return products;
@@ -43,7 +58,14 @@ export default async function HomePage() {
         <HeroBanner />
       </Suspense>
       <Suspense fallback={<LoadingSection title="Most Popular" />}>
-        <ProductGridSection title="Most Popular" products={await getMostPopularProducts()} />
+      <Carousel>
+        <CarouselContent>
+          <CarouselItem> <ProductGridSection title="Most Popular" products={await getMostPopularProducts()} /></CarouselItem>
+          <CarouselItem><ProductGridSection title="Most Popular" products={await getMostPopularProductsSecond()} /></CarouselItem>
+        </CarouselContent>
+        <CarouselPrevious className="hidden md:block" />
+        <CarouselNext className="hidden md:block" />
+      </Carousel>
       </Suspense>
       <br /><br />
       <Suspense fallback={<LoadingSection title="Newest" />}>
@@ -87,7 +109,7 @@ function HeroBanner() {
         </Button>
       </div>
       <div className="text-gray-400 mt-[180px] w-full">
-        <img src="https://i.ibb.co/MRtdsWd/featured.png" alt="featured" />
+        <img src="https://i.postimg.cc/6qkcgvSM/featured.png" alt="featured" />
         <br />
         <h1 className="font-bold">Learn Most Used Programming languages</h1>
       </div>
@@ -158,38 +180,91 @@ function FeaturesSection(){
   )
 }
 
-function ReadersSection(){
-  return(
-    <div className="bg-white py-20">
-    <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-8">What Our Readers Say</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-6 bg-gray-100 rounded shadow">
-            <div className="flex justify-center">
-              <UserIcon  />
-              </div>
-                <p className="text-gray-600 mb-4">CodeCommerce has transformed my coding skills. The eBooks are top-notch!</p>
-                <h3 className="text-xl font-bold">@JohnDoe</h3>
-            </div>
-            <div className="p-6 bg-gray-100 rounded shadow">
-            <div className="flex justify-center">
-              <UserIcon  />
-              </div>
-                <p className="text-gray-600 mb-4">I love the variety of topics covered. There s something for everyone.</p>
-                <h3 className="text-xl font-bold">@JaneSmith</h3>
-            </div>
-            <div className="p-6 bg-gray-100 rounded shadow">
-            <div className="flex justify-center">
-              <UserIcon  />
-              </div>
-                <p className="text-gray-600 mb-4">The expert authors provide clear and concise explanations. Highly recommend!</p>
-                <h3 className="text-xl font-bold">@AliceJohnson</h3>
-            </div>
+function ReadersSection() {
+  return (
+    <>
+      <div className="bg-white py-20">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-8">What Our Readers Say</h2>
+
+          <Carousel>
+            <CarouselContent>
+              <CarouselItem>
+                <div className="p-6 bg-gray-100 rounded shadow">
+                  <div className="flex justify-center mb-4">
+                    <UserIcon />
+                  </div>
+                  <p className="text-gray-600 mb-4">
+                    CodeCommerce has transformed my coding skills. The eBooks are top-notch!
+                  </p>
+                  <h3 className="text-xl font-bold">@JohnDoe</h3>
+                </div>
+              </CarouselItem>
+              <CarouselItem>
+                <div className="p-6 bg-gray-100 rounded shadow">
+                  <div className="flex justify-center mb-4">
+                    <UserIcon />
+                  </div>
+                  <p className="text-gray-600 mb-4">
+                    I love the variety of topics covered. There's something for everyone.
+                  </p>
+                  <h3 className="text-xl font-bold">@JaneSmith</h3>
+                </div>
+              </CarouselItem>
+              <CarouselItem>
+                <div className="p-6 bg-gray-100 rounded shadow">
+                  <div className="flex justify-center mb-4">
+                    <UserIcon />
+                  </div>
+                  <p className="text-gray-600 mb-4">
+                    The expert authors provide clear and concise explanations. Highly recommend!
+                  </p>
+                  <h3 className="text-xl font-bold">@AliceJohnson</h3>
+                </div>
+              </CarouselItem>
+              <CarouselItem>
+                <div className="p-6 bg-gray-100 rounded shadow">
+                  <div className="flex justify-center mb-4">
+                    <UserIcon />
+                  </div>
+                  <p  className="text-gray-600 mb-4">
+                  I appreciate how each topic is broken down into manageable parts. It makes learning enjoyable!
+                  </p>
+                  <h3 className="text-xl font-bold">@SaraKim</h3>
+                </div>
+              </CarouselItem>
+              <CarouselItem>
+                <div className="p-6 bg-gray-100 rounded shadow">
+                  <div className="flex justify-center mb-4">
+                    <UserIcon />
+                  </div>
+                  <p  className="text-gray-600 mb-4">
+                  The community support is fantastic! I always feel encouraged and motivated to keep learning
+                  </p>
+                  <h3 className="text-xl font-bold">@DavidMartinez</h3>
+                </div>
+              </CarouselItem>
+              <CarouselItem>
+                <div className="p-6 bg-gray-100 rounded shadow">
+                  <div className="flex justify-center mb-4">
+                    <UserIcon />
+                  </div>
+                  <p  className="text-gray-600 mb-4">
+                  The eBooks are a treasure trove of knowledge. I ve recommended them to all my friends!
+                  </p>
+                  <h3 className="text-xl font-bold">@ChrisBrown</h3>
+                </div>
+              </CarouselItem>
+            </CarouselContent >
+            <CarouselPrevious className="hidden md:block" />
+            <CarouselNext className="hidden md:block" />
+          </Carousel>
         </div>
-    </div>
-    </div>
-  )
+      </div>
+    </>
+  );
 }
+
 
 function LoadingSection({ title }: { title: string }) {
   return (
