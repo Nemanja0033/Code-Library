@@ -28,7 +28,7 @@ export function Nav({ children }: { children: ReactNode }) {
       </div>
     </div>
     {isOpen && (
-      <div className="md:hidden flex flex-col items-center bg-black text-primary-foreground absolute top-14 left-0 right-0">
+      <div className="md:hidden h-screen flex flex-col items-center bg-black text-primary-foreground absolute top-14 left-0 right-0">
         {children}
       </div>
     )}
