@@ -14,7 +14,7 @@ export function Nav({ children }: { children: ReactNode }) {
   return (
     <nav className="bg-black text-primary-foreground flex justify-between items-center px-4 lg:relative  sticky top-0 z-10">
     <div className="flex items-center justify-between w-full h-[60px]">
-    <a className="self-center font-semibold lg:text-xl" href="/">Code<span className="text-muted-foreground">Commerce</span></a>
+    <a className="self-center font-semibold lg:text-xl" href="/">Code<span className="text-muted-foreground">Library</span></a>
       <button
         className="md:hidden focus:outline-none"
         onClick={toggleMenu}
